@@ -52,7 +52,7 @@ def about(request):
 def product(request):
     context = {
         "page_title": "Product",
-        "all_products": Product.objects.filter(status=True),
+        "all_products": Product.objects.all().order_by("sequence"),
     }
     return render(request, "public_interface/product_list.html", context)
 
@@ -93,7 +93,6 @@ def apply_job(request):
 
     context = {"page_title": "Careers at The Deep Seafood Company"}
     return render(request, "public_interface/career.html", context)
-
 
 
 def contact(request):

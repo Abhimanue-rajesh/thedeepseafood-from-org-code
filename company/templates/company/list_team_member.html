@@ -1,0 +1,36 @@
+{% extends "authenticated_base.html" %}
+{% block content %}
+    <div class="container mt-4">
+        {% if all_team_member %}
+            <table class="table table-striped table-hover table-sm table-bordered sc-table-responsive">
+                <thead class="text-center">
+                    <th scope="colspan">Name</th>
+                    <th scope="colspan">Designation</th>
+                    <th scope="colspan">Image</th>
+                    <th scope="colspan">Status</th>
+                    <th scope="colspan">Sequence</th>
+                    <th colspan="2">Action</th>
+                </thead>
+                <tbody class="table-group divider">
+                    {% for team in all_team_member %}
+                        <td class="text-center">{{ team.name }}</td>
+                        <td class="text-center">{{ team.designation }}</td>
+                        <td class="text-center">
+                            {% comment %} <img src="{{ team.image.url }}"> {% endcomment %}
+                        </td>
+                        <td class="text-center">{{ team.status|yesno }}</td>
+                        <td class="text-center">{{ team.sequence }}</td>
+                        <td class="text-center">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="bi bi-trash3"></i>
+                        </td>
+                    </tbody>
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-primary" role="alert">No records yet!..</div>
+            {% endif %}
+        </table>
+    </div>
+{% endblock content %}

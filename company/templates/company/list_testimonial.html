@@ -1,0 +1,25 @@
+{% extends "authenticated_base.html" %}
+{% block content %}
+    <table class="table table- hover table-striped table-sm table-bordered">
+        <thead class="text-center">
+            <th scope="colspan">Name</th>
+            <th scope="colspan">Message</th>
+            <th scope="colspan">Image</th>
+            <th colspan="2">Action</th>
+        </thead>
+        <tbody class="table-group divider">
+            {% for testimonial in all_testimonial %}
+                <td class="text-center">{{ testimonial.name }}</td>
+                <td class="text-center">{{ testimonial.message }}</td>
+                <td class="text-center">
+                    {% comment %} <img src="{{ testimonial.image.url }}"> {% endcomment %}
+                </td>
+                <td class="text-center">
+                    <i class="bi bi-arrow-clockwise"></i>
+                </td>
+                <td class="text-center">
+                    <i class="bi bi-trash3"></i>
+                </td>
+            </tbody>
+        </table>
+    {% endblock content %}

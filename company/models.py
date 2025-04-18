@@ -66,16 +66,16 @@ class Brand(StatusTimestampBase):
         return self.name
 
 
-class SEO(models.Model):
+class SEO(StatusTimestampBase):
     PAGE_NAME_CHOICES = [
         ("hm", "Home"),
         ("abt", "About"),
-        ("svc", "Services"),
+        ("brd", "Brand"),
         ("prd", "Products"),
         ("car", "Career"),
         ("con", "Contact"),
         ("blg", "Blogs"),
-        ("nws", "News"),
+        ("nws", "News Room"),
     ]
     page_name = models.CharField(max_length=20, choices=PAGE_NAME_CHOICES, unique=True)
     meta_title = models.CharField(max_length=100)

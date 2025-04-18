@@ -1,0 +1,29 @@
+{% extends "authenticated_base.html" %}
+{% block content %}
+    <div class="container mt-4">
+        <table class="table table-hover table-striped table-sm table-bordered sc-responsive">
+            <thead class="text-center">
+                <th scope="colspan">Title</th>
+                <th scope="colspan">Image</th>
+                <th scope="colspan">Status</th>
+                <th colspan="2">Action</th>
+            </thead>
+            <tbody class="table-group divider">
+                {% for about in all_about %}
+                    <td class="text-center">{{ about.title }}</td>
+                    <td class="text-center">
+                        {% comment %} <img src="{{ about.image.url }} " class="h-200, w-200"> {% endcomment %}
+                    </td>
+                    <td class="text-center">{{ about.status|yesno }}</td>
+                    <td class="text-center">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="bi bi-trash3"></i>
+                    </td>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+    {% include "pagination.html" %}
+{% endblock content %}
